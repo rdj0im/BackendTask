@@ -3,13 +3,17 @@
 This Django App fetches the events from the user's Google Calendar. It uses OAuth2 for authentication, after which, the google calendar API is used to read the events and display it in the json format.
 
 ## Google API Setup
-Go to the [Google Cloud Console](https://console.cloud.google.com/) and sign in with your Google account. Use this [Python Quickstart](https://developers.google.com/calendar/api/quickstart/python) as a refernce and enable the Calendar API and get the credentials to be used in place of credentials.json.
+Go to the [Google Cloud Console](https://console.cloud.google.com/) and sign in with your Google account. Use this [Python Quickstart](https://developers.google.com/calendar/api/quickstart/python) as a reference. 
+- Go to APIs and Services (in the navigation menu)
+- Enable the Calendar API
+- Go to credentials
+- Choose Create credentials and create an OAuth Client ID
 
-While generating credentials:
-1. Select "Web application" as the application type, and enter a name for your application.
-2. In the "Authorized JavaScript Origins" and "Authorized Redirect URIs" fields, enter the URLs of your application that will be handling the OAuth flow.
-In this project, "http://localhost:8000" is set as the "Authorized JavaScript Origins" and "http://localhost:8000/rest/v1/calendar/redirect" is set as the "Authorized Redirect URIs" field for local testing.
-3. You can now use the generated client ID and client secret to authenticate with the Google Calendar API in your application.
+    While generating credentials:
+    1. Select "Web application" as the application type, and enter a name for your application.
+    2. In the "Authorized JavaScript Origins" and "Authorized Redirect URIs" fields, enter the URLs of your application that will be handling the OAuth flow. "Authorized Redirect URIs" is the URI that the Google OAuth page redirects to. You will not be allowed to redirect to any non registered URI.
+    In this project, "http://localhost:8000" is set as the "Authorized JavaScript Origins" and "http://localhost:8000/rest/v1/calendar/redirect" is set as the "Authorized Redirect URIs" field for local testing.
+- You can now use the generated client ID and client secret to authenticate with the Google Calendar API in your application.
 
 ## Endpoints
 There are two Endpoints setup:
